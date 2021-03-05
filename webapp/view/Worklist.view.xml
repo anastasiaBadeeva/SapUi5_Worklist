@@ -1,77 +1,37 @@
-<mvc:View
-	controllerName="jetCources.ControlTaskBadeeva.controller.Worklist"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic">
-
-	<semantic:SemanticPage
-		id="page"
-		headerPinnable="false"
-		toggleHeaderOnTitleClick="false">
-
+<mvc:View controllerName="jetCources.ControlTaskBadeeva.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar">
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false">
 		<semantic:titleHeading>
-			<Title text="{i18n>worklistTitle}" />
+			<Title text="{i18n>worklistTitle}"/>
 		</semantic:titleHeading>
-
+		<semantic:headerContent>
+			<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="zjblessons_base_Groups" persistencyKey="pk_MaterialsST"
+				 useToolbar="true" >
+		<SearchField id="searchField" tooltip="help" search="onSearch" width="auto"></SearchField>
+			</smartFilterBar:SmartFilterBar >
+		</semantic:headerContent>
 		<semantic:content>
-			<Table
-				id="table"
-				width="auto"
-				items="{
-					path: '/zjblessons_base_Groups',
-					sorter: {
-						path: 'GroupText',
-						descending: false
-					}
-				}"
-				noDataText="{worklistView>/tableNoDataText}"
-				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
-				growing="true"
-				growingScrollToLoad="true"
-				updateFinished="onUpdateFinished">
-
-				<headerToolbar>
-					<Toolbar>
-						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
-						<ToolbarSpacer />
-						<SearchField
-							id="searchField"
-							tooltip="{i18n>worklistSearchTooltip}"
-							search="onSearch"
-							width="auto">
-						</SearchField>
-					</Toolbar>
-				</headerToolbar>
-
-				<columns>
-					<Column id="nameColumn">
-						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
-					</Column>
-					<Column id="unitNumberColumn" hAlign="End">
-						<Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
-					</Column>
-				</columns>
-
-				<items>
-					<ColumnListItem
-						type="Navigation"
-						press="onPress">
-						<cells>
-							<ObjectIdentifier
-								title="{GroupText}"/>
-							<ObjectNumber
-								unit="{Created}"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
+				<smartTable:SmartTable id="smartTable" entitySet="zjblessons_base_Groups" smartFilterId="smartFilterBar" tableType="ResponsiveTable"
+				editable="false" editTogglable="false" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true"
+				useTablePersonalisation="true" header="Materials" showRowCount="true" persistencyKey="pk_MaterialsST" enableAutoBinding="true" showFullScreenButton="true"
+				beforeRebindTable="onBeforeRebindTable">
+				<Table id="table" width="auto" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+					growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" mode="SingleSelectLeft">
+					<headerToolbar>
+						<Toolbar>
+							<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation" press="onPress"></ColumnListItem>
+					</items>
+				</Table>
+			</smartTable:SmartTable>
 		</semantic:content>
-
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
-
-
 	</semantic:SemanticPage>
-
 </mvc:View>
