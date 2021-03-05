@@ -12,24 +12,93 @@
 				selectedKey="{objectView>/selectedTab}">
 				<items>
 					<IconTabFilter id="listTab" icon="{i18n>iconList}" text="{i18n>tList}" key="List" enabled="true">
-						<Panel expandable="true" headerText="Panel with a header text" width="auto" class="sapUiResponsiveMargin">
+						<Panel expandable="true" headerText="Panel" width="auto" class="sapUiResponsiveMargin">
 		<content>
-			<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+			<Table id="table" width="auto" items="{ path: '/zjblessons_base_SubGroups', sorter: { path: 'CreatedBy', descending: false ,group: true} }"
+				noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
+				updateFinished="onUpdateFinished" mode="SingleSelectLeft">
+				<columns>
+					<Column id="nameColumn1" hAlign="End">
+						<Text text="CreatedBy" id="tableCreatedBy"/>
+					</Column>
+					<Column id="nameColumn85" hAlign="End">
+						<Text text="CreatedByFullName" id="CreatedByFullName"/>
+					</Column>
+					<Column id="nameColumn8563" hAlign="End">
+						<Text text="CreatedByAvatar" id="CreatedByAvatar"/>
+					</Column>
+					<Column id="nameColumn">
+						<Text text="SubGroupText" id="MaterialText"/>
+					</Column>
+					<Column id="nameColumn2" hAlign="End">
+						<Text text="ModifiedBy" id="ModifiedBy"/>
+					</Column>
+					<Column id="nameColumn3" hAlign="End">
+						<Text text="GroupText" id="GroupText"/>
+					</Column>
+					<Column id="nameColumn4" hAlign="End">
+						<Text text="SubGroupText" id="SubGroupText"/>
+					</Column>
+					<Column id="nameColumn5" hAlign="End">
+						<Text text="Modified" id="Modified"/>
+					</Column>
+					<Column id="nameColumn6" hAlign="End">
+						<Text text="ModifiedByAvatar" id="ModifiedByAvatar"/>
+					</Column>
+					<Column id="nameColumn6863" hAlign="End">
+						<Text text="ModifiedByFullName" id="ModifiedByFullName55"/>
+					</Column>
+					<Column id="nameColumn686gh3" hAlign="End">
+						<Text text="Version" id="Version5"/>
+					</Column>
+					<Column id="nameColumn686gh3FGD" hAlign="End">
+						<Text text="IntegrationID" id="IntegrationIDGDF"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="onPress" >
+						<cells >
+							<ObjectIdentifier title="{CreatedBy}" id="CreatedById"/>
+						</cells>
+						<cells >
+							<ObjectIdentifier title="{CreatedByFullName}" id="CreatedByFullNamef"/>
+						</cells>
+						<cells >
+							<ObjectIdentifier title="{CreatedByAvatar}" id="CreatedByAvatar56"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier title="{SubGroupText}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier title="{ModifiedBy}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier title="{GroupText}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier title="{SubGroupText}"/>
+						</cells>
+						<cells>
+							<Text text="{ path: 'Modified', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'HH:mm dd/MM/yyyy' } }"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier title="{ModifiedByAvatar}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier title="{ModifiedByFullName}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier title="{Version}"/>
+						</cells>
+						<cells>
+							<ObjectIdentifier title="{IntegrationID}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
 		</content>
 	</Panel>
-	<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
-		<headerToolbar>
-			<OverflowToolbar >
-				<Title text="Custom Toolbar with a header text" />
-				<ToolbarSpacer />
-				<Button icon="sap-icon://settings" />
-				<Button icon="sap-icon://drop-down-list" />
-			</OverflowToolbar>
-		</headerToolbar>
-		<content>
-			<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
-		</content>
-	</Panel>
+
 					</IconTabFilter >
 					<IconTabFilter id="formTab" icon="{i18n>iconForm}" text="{i18n>fForm}" key="Form" enabled="true">
 						<smartForm:SmartForm id="smartForm" useHorizontalLayout="false" editable="false" editToggled="onEditToggled" title="Form">
