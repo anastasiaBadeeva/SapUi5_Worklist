@@ -155,8 +155,8 @@ sap.ui.define([
 			});
 		},
 		onPressIDItem: function() {
-	    var deletedItem = this.getView().byId("table").getSelectedItems()[0].getBindingContext().getPath();
-      	MessageBox.information(`${deletedItem}`);
+	    var item = this.getView().byId("table").getSelectedItems()[0].getBindingContext().getPath();
+      	MessageBox.information(`${item}`);
       	
 		},
 		/* =========================================================== */
@@ -170,6 +170,8 @@ sap.ui.define([
 		 * @private
 		 */
 		_showObject: function(oItem) {
+			var obj = oItem.getBindingContext().getProperty("GroupID");
+			sap.m.MessageToast.show(`${obj}`);
 			this.getRouter().navTo("object", {
 				objectId: oItem.getBindingContext().getProperty("GroupID")
 			});
