@@ -1,31 +1,29 @@
-<mvc:View
-	controllerName="jetCources.ControlTaskBadeeva.controller.Object"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="jetCources.ControlTaskBadeeva.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic">
-
-	<semantic:SemanticPage
-		id="page"
-		headerPinnable="false"
-		toggleHeaderOnTitleClick="false"
-		busy="{objectView>/busy}"
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}"
 		busyIndicatorDelay="{objectView>/delay}">
-
 		<semantic:titleHeading>
-			<Title text="{GroupText}" />
+			<Title text="{GroupText}"/>
 		</semantic:titleHeading>
-
-		<semantic:headerContent>
-			<ObjectNumber
-				numberUnit="{Created}"
-			/>
-		</semantic:headerContent>
-
+		<semantic:headerContent></semantic:headerContent>
+		<semantic:content>
+			<IconTabBar id="idIconTabBar" class="sapUiNoContentPadding" expandable="false" stretchContentHeight="true"
+				selectedKey="{objectView>/selectedTab}">
+				<items>
+					<IconTabFilter id="formTab" icon="{i18n>iconForm}" text="{i18n>fForm}" key="Form"
+						enabled="true">
+					
+					</IconTabFilter >
+					<IconTabFilter id="listTab" icon="{i18n>iconList}" text="{i18n>tList}" key="List"
+						enabled="true">
+					
+					</IconTabFilter >
+					
+				</items>
+			</IconTabBar>
+		</semantic:content>
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
-
-
 	</semantic:SemanticPage>
-
 </mvc:View>
