@@ -1,5 +1,6 @@
 <mvc:View controllerName="jetCources.ControlTaskBadeeva.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic">
+	xmlns:semantic="sap.f.semantic" xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}"
 		busyIndicatorDelay="{objectView>/delay}">
 		<semantic:titleHeading>
@@ -10,15 +11,65 @@
 			<IconTabBar id="idIconTabBar" class="sapUiNoContentPadding" expandable="false" stretchContentHeight="true"
 				selectedKey="{objectView>/selectedTab}">
 				<items>
-					<IconTabFilter id="formTab" icon="{i18n>iconForm}" text="{i18n>fForm}" key="Form"
-						enabled="true">
-					
+					<IconTabFilter id="listTab" icon="{i18n>iconList}" text="{i18n>tList}" key="List" enabled="true">
+						<List></List>
 					</IconTabFilter >
-					<IconTabFilter id="listTab" icon="{i18n>iconList}" text="{i18n>tList}" key="List"
-						enabled="true">
-					
+					<IconTabFilter id="formTab" icon="{i18n>iconForm}" text="{i18n>fForm}" key="Form" enabled="true">
+						<smartForm:SmartForm id="smartForm" useHorizontalLayout="false" editable="false" editToggled="onEditToggled" title="Form">
+							<!--<smartForm:layout>-->
+							<!--	<smartForm:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>-->
+							<!--</smartForm:layout>-->
+							<smartForm:Group id="main" label="MainInfo">
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{GroupText}" visible="true" mandatory="true" showValueHelp="true"/>
+									<smartField:SmartField value="{GroupID}" visible="false" mandatory="true"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement >
+									<smartField:SmartField value="{GroupDescription}" app:multiLineSettings="{cols: 60, rows: 4}" mandatory="false"/>
+								</smartForm:GroupElement>
+							</smartForm:Group>
+							<!--<smartForm:Group id="group" label="{i18n>tGroupInfo}">-->
+							<!--	<smartForm:GroupElement>-->
+							<!--		<smartField:SmartField value="{GroupText}" visible="true" mandatory="true" change="onChangeGroup"/>-->
+							<!--		<smartField:SmartField value="{GroupID}" visible="false" mandatory="true"/>-->
+							<!--	</smartForm:GroupElement>-->
+							<!--</smartForm:Group>-->
+							<!--<smartForm:Group id="subGroup" label="{i18n>tSubGroupInfo}">-->
+							<!--	<smartForm:GroupElement>-->
+							<!--		<smartField:SmartField value="{SubGroupText}" visible="true" mandatory="true" enabled="true"/>-->
+							<!--		<smartField:SmartField value="{SubGroupID}" visible="false" mandatory="true"/>-->
+							<!--	</smartForm:GroupElement>-->
+							<!--</smartForm:Group>-->
+							<smartForm:Group id="creationInfo" label="{i18n>tCreationInfo}">
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{Created}" mandatory="false" visible="true"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{CreatedBy}" mandatory="false"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{CreatedByAvatar}" mandatory="false"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{CreatedByFullName}" mandatory="false"/>
+								</smartForm:GroupElement>
+							</smartForm:Group>
+							<smartForm:Group id="modificationInfo" label="{i18n>tModificationInfo}">
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{Modified}" mandatory="false" editable="false"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{ModifiedBy}" mandatory="false"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{ModifiedByAvatar}" mandatory="false"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{ModifiedByFullName}" mandatory="false"/>
+								</smartForm:GroupElement>
+							</smartForm:Group>
+						</smartForm:SmartForm>
 					</IconTabFilter >
-					
 				</items>
 			</IconTabBar>
 		</semantic:content>

@@ -99,6 +99,7 @@
 				<Annotation Term="Common.Label" String="{@i18n&gt;lCreatedByFullName}"/>
 			</Annotations>
 			<Annotations Target="jetCloud.apps.zjblessons.jblesson02.v01.01.zjblessons_base_GroupsType/GroupDescription">
+				<Annotation Term="UI.MultiLineText"/>
 				<Annotation Term="Common.Label" String="{@i18n&gt;lGroupDescription}"/>
 			</Annotations>
 			<Annotations Target="jetCloud.apps.zjblessons.jblesson02.v01.01.zjblessons_base_GroupsType/IntegrationID">
