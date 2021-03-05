@@ -23,6 +23,13 @@
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm">
 			<Annotations Target="jetCloud.apps.zjblessons.jblesson02.v01.01.zjblessons_base_GroupsType">
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>GroupText</PropertyPath>
+						<PropertyPath>IntegrationID</PropertyPath>
+						<PropertyPath>Created</PropertyPath>
+					</Collection>
+				</Annotation>
 				<Annotation Term="UI.LineItem">
 					<Collection>
 						<Record Type="UI.DataField">
