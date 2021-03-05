@@ -12,7 +12,24 @@
 				selectedKey="{objectView>/selectedTab}">
 				<items>
 					<IconTabFilter id="listTab" icon="{i18n>iconList}" text="{i18n>tList}" key="List" enabled="true">
-						<List></List>
+						<Panel expandable="true" headerText="Panel with a header text" width="auto" class="sapUiResponsiveMargin">
+		<content>
+			<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+		</content>
+	</Panel>
+	<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+		<headerToolbar>
+			<OverflowToolbar >
+				<Title text="Custom Toolbar with a header text" />
+				<ToolbarSpacer />
+				<Button icon="sap-icon://settings" />
+				<Button icon="sap-icon://drop-down-list" />
+			</OverflowToolbar>
+		</headerToolbar>
+		<content>
+			<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+		</content>
+	</Panel>
 					</IconTabFilter >
 					<IconTabFilter id="formTab" icon="{i18n>iconForm}" text="{i18n>fForm}" key="Form" enabled="true">
 						<smartForm:SmartForm id="smartForm" useHorizontalLayout="false" editable="false" editToggled="onEditToggled" title="Form">
@@ -28,18 +45,6 @@
 									<smartField:SmartField value="{GroupDescription}" app:multiLineSettings="{cols: 60, rows: 4}" mandatory="false"/>
 								</smartForm:GroupElement>
 							</smartForm:Group>
-							<!--<smartForm:Group id="group" label="{i18n>tGroupInfo}">-->
-							<!--	<smartForm:GroupElement>-->
-							<!--		<smartField:SmartField value="{GroupText}" visible="true" mandatory="true" change="onChangeGroup"/>-->
-							<!--		<smartField:SmartField value="{GroupID}" visible="false" mandatory="true"/>-->
-							<!--	</smartForm:GroupElement>-->
-							<!--</smartForm:Group>-->
-							<!--<smartForm:Group id="subGroup" label="{i18n>tSubGroupInfo}">-->
-							<!--	<smartForm:GroupElement>-->
-							<!--		<smartField:SmartField value="{SubGroupText}" visible="true" mandatory="true" enabled="true"/>-->
-							<!--		<smartField:SmartField value="{SubGroupID}" visible="false" mandatory="true"/>-->
-							<!--	</smartForm:GroupElement>-->
-							<!--</smartForm:Group>-->
 							<smartForm:Group id="creationInfo" label="{i18n>tCreationInfo}">
 								<smartForm:GroupElement>
 									<smartField:SmartField value="{Created}" mandatory="false" visible="true"/>
